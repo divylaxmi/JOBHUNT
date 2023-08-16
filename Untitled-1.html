@@ -1,0 +1,40 @@
+main_layout.html  /user_layout.html / company_layout.html
+
+<html>
+    <head>
+        <link....>
+        
+    </head>
+
+    <body>
+        <header>
+            --------
+
+        </header>
+        
+        {% block content %}
+        {% endblock %}
+
+        <footer>
+            --------
+        </footer>
+    </body>
+</html>
+
+
+
+main_layout.html used by -> user_login.html / user_signup.html / company_login.html / company_signup.html / index.html
+
+
+{% extends "main_layout.html"}
+<!DOCTYPE>
+<html>
+    ------------
+
+
+    {% block content %}
+      --------------
+      --------------
+      --------------
+
+    {% endblock %}

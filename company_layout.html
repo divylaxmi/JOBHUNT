@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/css/user.css">
+</head>
+<body>
+    <div class='dashboard'>
+        <div class="dashboard-nav">
+            <header><a href="#!" class="menu-toggle"></a><a href="#" class="brand-logo"> <span>{{session['name']}}</span></a></header>
+            <nav class="dashboard-nav-list"><a href="/company_dashboard" class="dashboard-nav-item">
+                    Home </a><a href="#" class="dashboard-nav-item active">dashboard
+                </a><a href="/company_job_post" class="dashboard-nav-item"> Job Post </a>
+            <a href="/company_job_list" class="dashboard-nav-item"> View Posted Job </a>
+               
+                <a href="/company_profile" class="dashboard-nav-item"> Profile </a>
+                <div class="nav-item-divider"></div>
+                <a href="/company_logout" class="dashboard-nav-item"> Logout </a>
+            </nav>
+        </div>
+        <div class='dashboard-app'>
+            <header class='dashboard-toolbar'><a href="#!" class="menu-toggle"><i class="fas fa-bars"></i></a></header>
+            <div class='dashboard-content'>
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

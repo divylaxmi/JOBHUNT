@@ -1,0 +1,80 @@
+{% extends "main_layout.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Signup</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+            integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    {% block content %}
+    <style>
+        body{color: #000;overflow-x: hidden;height: 100%;background-image: url("../static/images/bg2.png");background-repeat: no-repeat;background-size: 100% 100%}.card{padding: 30px 40px;margin-top: 60px;margin-bottom: 60px;border: none !important;box-shadow: 0 6px 12px 0 rgba(0,0,0,0.2)}.blue-text{color: #00BCD4}.form-control-label{margin-bottom: 0}input, textarea, button{padding: 8px 15px;border-radius: 5px !important;margin: 5px 0px;box-sizing: border-box;border: 1px solid #ccc;font-size: 18px !important;font-weight: 300}input:focus, textarea:focus{-moz-box-shadow: none !important;-webkit-box-shadow: none !important;box-shadow: none !important;border: 1px solid #00BCD4;outline-width: 0;font-weight: 400}.btn-block{text-transform: uppercase;font-size: 15px !important;font-weight: 400;height: 43px;cursor: pointer}.btn-block:hover{color: #fff !important}button:focus{-moz-box-shadow: none !important;-webkit-box-shadow: none !important;box-shadow: none !important;outline-width: 0}
+    </style>
+</head>
+<body>
+    <div class="container-fluid px-1 py-5 mx-auto">
+        <div class="row d-flex justify-content-center">
+            <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                {% for message in messages %}
+                <div class="alert alert-danger" role="alert">
+                    {{message}}
+                </div>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+                <h3 class="bg-success px-3 py-3">User Signup</h3>
+                <div class="card">
+                    <h5 class="text-center mb-4">Register Yourself</h5>
+                    <form class="form-card" action="/user_signup_insert" method="post">
+                        <div class="row justify-content-between text-left">
+                            <div class="form-group col-sm-6 flex-column d-flex"> <label
+                                    class="form-control-label px-3">First name<span class="text-danger"> *</span></label>
+                                <input type="text" id="fname" name="fname" placeholder="Enter your first name"
+                                > </div>
+                            <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Last
+                                    name<span class="text-danger"> *</span></label> <input type="text" id="lname"
+                                    name="lname" placeholder="Enter your last name" onblur="validate(2)"> </div>
+                        </div>
+                        <div class="row justify-content-between text-left">
+                            <div class="form-group col-sm-6 flex-column d-flex"> <label
+                                    class="form-control-label px-3">Email<span class="text-danger">
+                                        *</span></label> <input type="text" id="email" name="email" placeholder="Enter your email"
+                                    onblur="validate(3)"> </div>
+                            <div class="form-group col-sm-6 flex-column d-flex"> <label
+                                    class="form-control-label px-3">Mobile<span class="text-danger"> *</span></label>
+                                <input type="text" id="mob" name="mobile" placeholder="Enter your mobile" maxlength="10"> </div>
+                        </div>
+                       
+                        <div class="row justify-content-between text-left">
+                            <div class="form-group col-12 flex-column d-flex"> <label class="form-control-label px-3">Password<span class="text-danger"> *</span></label> <input
+                                    type="password" id="ans" name="password" placeholder="Enter new password" onblur="validate(6)"> </div>
+                        </div>
+                       
+                        <div class="row justify-content-between text-left">
+                            <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3"><span class="text-danger"> </span></label>
+                                 <img src="../static/captcha/user_captcha.png" width="200px" height="50px" alt=""> </div>
+                            <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Captcha<span
+                                        class="text-danger"> *</span></label>
+                                <input type="text" id="mob" name="captcha" placeholder="Enter captcha value" onblur="validate(4)">
+                            </div>
+                        </div>
+                        <div class="row justify-content-end">
+                            <div class="form-group col-sm-6"> <button type="submit" class="btn-block btn-danger">Register Now</button> </div>
+                        </div>
+                        <div class="row justify-content-end">
+                            Already Registered?<a href="/user_login">Login Now</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endblock %}
+</body>
+</html>
